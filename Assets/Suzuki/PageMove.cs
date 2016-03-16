@@ -12,7 +12,7 @@ public class PageMove : MonoBehaviour {
     public void PageMove1()
     {
 
-        transform.position = outPagePos.transform.position;
+        transform.parent.position = outPagePos.transform.position;
         GameObject target = GameObject.Find("Page2");
         target.transform.position = inPagePos.transform.position;
     }
@@ -20,7 +20,7 @@ public class PageMove : MonoBehaviour {
     public void PageMove2()
     {
 
-        transform.position = outPagePos.transform.position;
+        transform.parent.position = outPagePos.transform.position;
         GameObject target = GameObject.Find("Page1");
         target.transform.position = inPagePos.transform.position;
     }
