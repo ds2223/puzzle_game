@@ -20,7 +20,7 @@ public class Destroy : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         maguro = GetComponent<Collider2D>().gameObject.tag == "maguro";
-        if (maguro == maguro)
+        if (maguro)
         {
             Debug.Log("マグロおいしい");
             gameObject.SetActive(false);

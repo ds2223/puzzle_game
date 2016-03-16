@@ -26,10 +26,11 @@ public class Puzzle_board : MonoBehaviour
                 //床をランダムで選択
                 GameObject toInstantiate = Tiles[Random.Range(0, Tiles.Length)];              
                 //床or外壁を生成し、instance変数に格納
-                GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0f),
+                GameObject instance = Instantiate(toInstantiate, new Vector2(x, y),
                     Quaternion.identity) as GameObject;
                 //生成したinstanceをBoardオブジェクトの子オブジェクトとする
                 instance.transform.SetParent(boardHolder);
+
             }
         }
     }

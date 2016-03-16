@@ -3,48 +3,81 @@ using System.Collections;
 
 public class Puzzle_swap : MonoBehaviour
 {
-    private Vector3 screenPoint;
-    private Vector3 offset;
-    
+    public GameObject holdObj;
+    public float holdPositionX;
+    public float holdPositionY;
+    private float z = 10f;
 
-    void OnMouseDown()
+    // Use this for initialization
+    void Start()
     {
-        //カメラから見たオブジェクトの現在位置を画面位置座標に変換
-        screenPoint = Camera.main.WorldToScreenPoint(transform.position);
 
-        //取得したscreenPointの値を変数に格納
-        float x = Input.mousePosition.x;
-        float y = Input.mousePosition.y;
-        
-
-        //オブジェクトの座標からマウス位置(つまりクリックした位置)を引いている。
-        //これでオブジェクトの位置とマウスクリックの位置の差が取得できる。
-        //ドラッグで移動したときのずれを補正するための計算だと考えれば分かりやすい
-        offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(x, y, screenPoint.z));
-
-        
     }
 
-    void OnMouseDrag()
+    // Update is called once per frame
+    void Update()
     {
-        //ドラッグ時のマウス位置を変数に格納
-        float x = Input.mousePosition.x;
-        float y = Input.mousePosition.y;
-
-        //Debug.Log(x.ToString() + " - " + y.ToString());
-
-        //ドラッグ時のマウス位置をシーン上の3D空間の座標に変換する
-        Vector3 currentScreenPoint = new Vector3(x, y, screenPoint.z);
-
-        //上記にクリックした場所の差を足すことによって、オブジェクトを移動する座標位置を求める
-        Vector3 currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint) + offset;
-
-        //オブジェクトの位置を変更する
-        transform.position = currentPosition;
+        if (Input.GetMouseButtonDown(0))
+        {
+            LeftClick();
+        }
+        if (Input.GetMouseButton(0))
+        {
+            LeftDrag();
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            LeftUp();
+        }
     }
 
-    public void OnMouseUp()
+    private void LeftClick()
     {
-           
+        Vector3 tapPoint = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        if (holdObj == null)
+        {
+            Collider2D col = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(tapPoint));
+            if (col != null)
+            {
+                this.holdObj = col.gameObject;
+                holdPositionX = this.holdObj.transform.position.x;
+                holdPositionY = this.holdObj.transform.position.y;
+                holdObj.transform.position = Camera.main.ScreenToWorldPoint(tapPoint);
+            }
+        }
+
+    }
+    private void LeftDrag()
+    {
+        Vector3 tapPoint = Input.mousePosition;
+        if (holdObj != null)
+        {
+            this.holdObj.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(tapPoint.x, tapPoint.y, 0));
+            Collider2D[] colSet = Physics2D.OverlapPointAll(Camera.main.ScreenToWorldPoint(new Vector3(tapPoint.x, tapPoint.y, 0)));
+            if (colSet.Length > 1)
+            {
+                foreach (Collider2D col in colSet)
+                {
+                    if (!col.gameObject.Equals(this.holdObj))
+                    {
+                        float tmpPositionX = holdPositionX;
+                        float tmpPositionY = holdPositionY;
+                        holdPositionX = col.gameObject.transform.position.x;
+                        holdPositionY = col.gameObject.transform.position.y;
+                        col.gameObject.transform.position = new Vector2(tmpPositionX, tmpPositionY);
+
+                    }
+                }
+            }
+        }
+    }
+    private void LeftUp()
+    {
+        Vector3 tapPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, z);
+        if (holdObj != null)
+        {
+            holdObj.transform.position = new Vector2(holdPositionX, holdPositionY);
+            holdObj = null;
+        }
     }
 }
