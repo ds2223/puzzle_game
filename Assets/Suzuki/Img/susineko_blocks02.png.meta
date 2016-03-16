@@ -1,0 +1,338 @@
+fileFormatVersion: 2
+guid: 7bc59d931e4884840b902fdb390f1a3f
+timeCreated: 1458128695
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: susineko_blocks02_0
+    21300002: susineko_blocks02_1
+    21300004: susineko_blocks02_2
+    21300006: susineko_blocks02_3
+    21300008: susineko_blocks02_4
+    21300010: susineko_blocks02_5
+    21300012: susineko_blocks02_6
+    21300014: susineko_blocks02_7
+    21300016: susineko_blocks02_8
+    21300018: susineko_blocks02_9
+    21300020: susineko_blocks02_10
+    21300022: susineko_blocks02_11
+    21300024: susineko_blocks02_12
+    21300026: susineko_blocks02_13
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: susineko_blocks02_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 38}
+        - {x: -43, y: 37}
+        - {x: -43, y: -30}
+        - {x: -31, y: -36}
+        - {x: 35, y: -36}
+        - {x: 44, y: -10}
+        - {x: 44, y: 38}
+    - name: susineko_blocks02_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22, y: 39}
+        - {x: -43, y: 20}
+        - {x: -43, y: -37}
+        - {x: 37, y: -37}
+        - {x: 44, y: -28}
+        - {x: 44, y: 28}
+        - {x: 38, y: 39}
+    - name: susineko_blocks02_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 47}
+        - {x: -44, y: 34}
+        - {x: -44, y: -37}
+        - {x: 24, y: -37}
+        - {x: 43, y: -19}
+        - {x: 43, y: 47}
+    - name: susineko_blocks02_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30, y: 40}
+        - {x: -44, y: 23}
+        - {x: -44, y: -28}
+        - {x: -43, y: -34}
+        - {x: 24, y: -34}
+        - {x: 43, y: -15}
+        - {x: 43, y: 40}
+    - name: susineko_blocks02_4
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 29, y: 36}
+        - {x: -13, y: 36}
+        - {x: -40, y: 12}
+        - {x: -40, y: -18}
+        - {x: -37, y: -23}
+        - {x: -27, y: -37}
+        - {x: 19, y: -37}
+        - {x: 30, y: -36}
+        - {x: 43, y: -19}
+        - {x: 45, y: -9}
+        - {x: 45, y: 20}
+    - name: susineko_blocks02_5
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 23, y: 35}
+        - {x: -14, y: 35}
+        - {x: -41, y: 19}
+        - {x: -41, y: -32}
+        - {x: -26, y: -40}
+        - {x: 11, y: -40}
+        - {x: 42, y: -28}
+        - {x: 47, y: -6}
+        - {x: 47, y: 23}
+        - {x: 44, y: 30}
+    - name: susineko_blocks02_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 35}
+        - {x: -40, y: 26}
+        - {x: -40, y: -38}
+        - {x: -36, y: -40}
+        - {x: 31, y: -40}
+        - {x: 48, y: -23}
+        - {x: 48, y: 27}
+        - {x: 42, y: 35}
+    - name: susineko_blocks02_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 33}
+        - {x: -41, y: 14}
+        - {x: -41, y: -27}
+        - {x: -27, y: -42}
+        - {x: 19, y: -42}
+        - {x: 28, y: -41}
+        - {x: 46, y: -13}
+        - {x: 46, y: 22}
+        - {x: 25, y: 33}
+    - name: susineko_blocks02_8
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 31}
+        - {x: -44, y: 22}
+        - {x: -44, y: -27}
+        - {x: -32, y: -43}
+        - {x: 35, y: -43}
+        - {x: 43, y: -17}
+        - {x: 43, y: 29}
+        - {x: 39, y: 31}
+    - name: susineko_blocks02_9
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 32}
+        - {x: -32, y: 32}
+        - {x: -43, y: 9}
+        - {x: -43, y: -42}
+        - {x: 27, y: -42}
+        - {x: 45, y: -19}
+        - {x: 45, y: 18}
+        - {x: 43, y: 24}
+    - name: susineko_blocks02_10
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 31}
+        - {x: -44, y: 6}
+        - {x: -44, y: -33}
+        - {x: -32, y: -44}
+        - {x: 8, y: -44}
+        - {x: 27, y: -41}
+        - {x: 44, y: -31}
+        - {x: 44, y: 23}
+        - {x: 41, y: 31}
+    - name: susineko_blocks02_11
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 24, y: 33}
+        - {x: -38, y: 33}
+        - {x: -38, y: -41}
+        - {x: 21, y: -41}
+        - {x: 32, y: -40}
+        - {x: 39, y: -27}
+        - {x: 39, y: 16}
+        - {x: 37, y: 27}
+    - name: susineko_blocks02_12
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 23, y: 36}
+        - {x: -30, y: 36}
+        - {x: -34, y: 35}
+        - {x: -34, y: -40}
+        - {x: 30, y: -40}
+        - {x: 42, y: -25}
+        - {x: 43, y: -19}
+        - {x: 43, y: 24}
+    - name: susineko_blocks02_13
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -33, y: 36}
+        - {x: -40, y: 17}
+        - {x: -40, y: -34}
+        - {x: -34, y: -39}
+        - {x: 33, y: -39}
+        - {x: 47, y: -34}
+        - {x: 47, y: 36}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
