@@ -6,7 +6,8 @@ public class Puzzle_swap : MonoBehaviour
     public GameObject holdObj;
     public float holdPositionX;
     public float holdPositionY;
-    private float z = 10f;
+    public float holdPositionZ;
+
 
     // Use this for initialization
     void Start()
@@ -33,7 +34,7 @@ public class Puzzle_swap : MonoBehaviour
 
     private void LeftClick()
     {
-        Vector3 tapPoint = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        Vector3 tapPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y,6.9f);
         if (holdObj == null)
         {
             Collider2D col = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(tapPoint));
@@ -42,6 +43,7 @@ public class Puzzle_swap : MonoBehaviour
                 this.holdObj = col.gameObject;
                 holdPositionX = this.holdObj.transform.position.x;
                 holdPositionY = this.holdObj.transform.position.y;
+                holdPositionZ = 0;
                 holdObj.transform.position = Camera.main.ScreenToWorldPoint(tapPoint);
             }
         }
@@ -52,8 +54,8 @@ public class Puzzle_swap : MonoBehaviour
         Vector3 tapPoint = Input.mousePosition;
         if (holdObj != null)
         {
-            this.holdObj.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(tapPoint.x, tapPoint.y, 0));
-            Collider2D[] colSet = Physics2D.OverlapPointAll(Camera.main.ScreenToWorldPoint(new Vector3(tapPoint.x, tapPoint.y, 0)));
+            this.holdObj.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(tapPoint.x, tapPoint.y, 1f));
+            Collider2D[] colSet = Physics2D.OverlapPointAll(Camera.main.ScreenToWorldPoint(new Vector3(tapPoint.x, tapPoint.y,1f)));
             if (colSet.Length > 1)
             {
                 foreach (Collider2D col in colSet)
@@ -62,6 +64,7 @@ public class Puzzle_swap : MonoBehaviour
                     {
                         float tmpPositionX = holdPositionX;
                         float tmpPositionY = holdPositionY;
+                        float tmpPositionZ = holdPositionZ;
                         holdPositionX = col.gameObject.transform.position.x;
                         holdPositionY = col.gameObject.transform.position.y;
                         col.gameObject.transform.position = new Vector2(tmpPositionX, tmpPositionY);
@@ -73,7 +76,7 @@ public class Puzzle_swap : MonoBehaviour
     }
     private void LeftUp()
     {
-        Vector3 tapPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, z);
+        Vector3 tapPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
         if (holdObj != null)
         {
             holdObj.transform.position = new Vector2(holdPositionX, holdPositionY);
