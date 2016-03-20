@@ -8,7 +8,6 @@ public class Puzzle_swap : MonoBehaviour
     public float holdPositionY;
     public float holdPositionZ;
 
-
     // Use this for initialization
     void Start()
     {

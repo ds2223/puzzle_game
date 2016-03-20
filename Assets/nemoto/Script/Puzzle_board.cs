@@ -10,6 +10,9 @@ public class Puzzle_board : MonoBehaviour
 
     public GameObject[] Tiles;
     private GameObject[,] instance;
+    private int[,] tileTable;
+
+
 
     //オブジェクトの位置情報を保存する変数
 
@@ -17,7 +20,7 @@ public class Puzzle_board : MonoBehaviour
     void PuzzleSetup()
     {
         //Boardというオブジェクトを作成し、transform情報をboardHolderに保存
-        instance = new GameObject[columns,rows];
+        instance = new GameObject[columns, rows];
         //x = -1〜8をループ
         for (int x = 0; x < columns; x++)
         {
@@ -27,15 +30,73 @@ public class Puzzle_board : MonoBehaviour
                 //床をランダムで選択
                 GameObject toInstantiate = Tiles[Random.Range(0, Tiles.Length)];
                 //床or外壁を生成し、instance変数に格納
-                instance[x, y] = Instantiate(toInstantiate, new Vector3(x,y, 0),
-                    Quaternion.identity) as GameObject;  
-            }   
+                instance[x, y] = Instantiate(toInstantiate, new Vector3(x, y, 0),
+                    Quaternion.identity) as GameObject;               
+            }
         }
     }
 
     public void Start()
     {
         PuzzleSetup();
-        Destroy(this.instance[2, 4]);
+        //Destroy(this.instance[2, 4]);
+        DeleteMatchTile();
+      
+    }
+
+    //パズルを消す処理
+    private void DeleteMatchTile()
+    {
+        for (int x = 0; x < columns; x++)
+        {
+            for (int y = 0; y < rows - 1; y++)
+            {
+                try
+                {
+                    GameObject nowObj =  instance[x, y];
+                    GameObject nextObj = instance[x +1, y];
+                    SpriteRenderer nowRenderer = nowObj.GetComponent<SpriteRenderer>();
+                    SpriteRenderer nextRenderer = nextObj.GetComponent<SpriteRenderer>();
+                    Sprite nowSprite = nowRenderer.sprite;
+                    Sprite nextSprite = nextRenderer.sprite;
+                    if (nowSprite.Equals(nextSprite))
+                    {   
+                        Destroy(nowObj);
+                        Destroy(nextObj);
+                    }
+                }
+                catch
+                {
+                }
+            }
+        }
+        DeleteMatchTile_rows();
+    }
+
+    private void DeleteMatchTile_rows()
+    {
+        for (int x = 0; x < columns; x++)
+        {
+            for (int y = 0; y < rows - 1; y++)
+            {
+                try
+                {
+                    GameObject nowObj = instance[x, y];
+                    GameObject nextObj = instance[x, y +1];
+                    SpriteRenderer nowRenderer = nowObj.GetComponent<SpriteRenderer>();
+                    SpriteRenderer nextRenderer = nextObj.GetComponent<SpriteRenderer>();
+                    Sprite nowSprite = nowRenderer.sprite;
+                    Sprite nextSprite = nextRenderer.sprite;
+                    if (nowSprite.Equals(nextSprite))
+                    {
+                        Destroy(nowObj);
+                        Destroy(nextObj);
+                    }
+                }
+                catch
+                {
+                }
+            }
+        }
     }
 }
