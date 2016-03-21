@@ -28,6 +28,7 @@ public class Puzzle_swap : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             LeftUp();
+
         }
     }
 

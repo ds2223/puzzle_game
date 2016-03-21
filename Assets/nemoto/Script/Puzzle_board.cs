@@ -31,7 +31,7 @@ public class Puzzle_board : MonoBehaviour
                 GameObject toInstantiate = Tiles[Random.Range(0, Tiles.Length)];
                 //床or外壁を生成し、instance変数に格納
                 instance[x, y] = Instantiate(toInstantiate, new Vector3(x, y, 0),
-                    Quaternion.identity) as GameObject;               
+                    Quaternion.identity) as GameObject;
             }
         }
     }
@@ -39,30 +39,42 @@ public class Puzzle_board : MonoBehaviour
     public void Start()
     {
         PuzzleSetup();
-        //Destroy(this.instance[2, 4]);
         DeleteMatchTile();
-      
+       
     }
 
-    //パズルを消す処理
-    private void DeleteMatchTile()
+    public void Update()
     {
-        for (int x = 0; x < columns; x++)
+        DeleteMatchTile();
+        FallTile();
+    }
+
+
+    //パズルを消す処理
+    public void DeleteMatchTile()
+    {
+        //横方向
+        for (int x = 0; x < columns - 2; x++)
         {
-            for (int y = 0; y < rows - 1; y++)
+            for (int y = 0; y < rows; y++)
             {
                 try
                 {
-                    GameObject nowObj =  instance[x, y];
-                    GameObject nextObj = instance[x +1, y];
-                    SpriteRenderer nowRenderer = nowObj.GetComponent<SpriteRenderer>();
-                    SpriteRenderer nextRenderer = nextObj.GetComponent<SpriteRenderer>();
-                    Sprite nowSprite = nowRenderer.sprite;
-                    Sprite nextSprite = nextRenderer.sprite;
-                    if (nowSprite.Equals(nextSprite))
-                    {   
-                        Destroy(nowObj);
-                        Destroy(nextObj);
+                    GameObject first = instance[x, y];
+                    GameObject second = instance[x + 1, y];
+                    GameObject third = instance[x + 2, y];
+                    SpriteRenderer firstRenderer = first.GetComponent<SpriteRenderer>();
+                    SpriteRenderer secondRenderer = second.GetComponent<SpriteRenderer>();
+                    SpriteRenderer thirdRenderer = third.GetComponent<SpriteRenderer>();
+                    Sprite firstSprite = firstRenderer.sprite;
+                    Sprite secondSprite = secondRenderer.sprite;
+                    Sprite thirdSprite = thirdRenderer.sprite;
+                    if (firstSprite.Equals(secondSprite) && secondSprite.Equals(thirdSprite))
+                    {
+                        Destroy(first);
+                        Destroy(second);
+                        Destroy(third);
+
                     }
                 }
                 catch
@@ -70,31 +82,50 @@ public class Puzzle_board : MonoBehaviour
                 }
             }
         }
-        DeleteMatchTile_rows();
-    }
 
-    private void DeleteMatchTile_rows()
-    {
+        //縦方向
         for (int x = 0; x < columns; x++)
         {
-            for (int y = 0; y < rows - 1; y++)
+            for (int y = 0; y < rows - 2; y++)
             {
                 try
                 {
-                    GameObject nowObj = instance[x, y];
-                    GameObject nextObj = instance[x, y +1];
-                    SpriteRenderer nowRenderer = nowObj.GetComponent<SpriteRenderer>();
-                    SpriteRenderer nextRenderer = nextObj.GetComponent<SpriteRenderer>();
-                    Sprite nowSprite = nowRenderer.sprite;
-                    Sprite nextSprite = nextRenderer.sprite;
-                    if (nowSprite.Equals(nextSprite))
+                    GameObject first = instance[x, y];
+                    GameObject second = instance[x, y + 1];
+                    GameObject third = instance[x + 2, y + 2];
+                    SpriteRenderer firstRenderer = first.GetComponent<SpriteRenderer>();
+                    SpriteRenderer secondRenderer = second.GetComponent<SpriteRenderer>();
+                    SpriteRenderer thirdRenderer = third.GetComponent<SpriteRenderer>();
+                    Sprite firstSprite = firstRenderer.sprite;
+                    Sprite secondSprite = secondRenderer.sprite;
+                    Sprite thirdSprite = thirdRenderer.sprite;
+                    if (firstSprite.Equals(secondSprite) && secondSprite.Equals(thirdSprite))
                     {
-                        Destroy(nowObj);
-                        Destroy(nextObj);
+                        Destroy(first);
+                        Destroy(second);
+                        Destroy(third);
+
                     }
                 }
                 catch
                 {
+                }
+            }
+        }
+    }
+    private void FallTile()
+    {
+        for (int x = 0; x < columns; x++)
+        {
+            for (int y = 1; y < rows; y++)
+            {
+                if (instance[x, y - 1] == null && instance[x, y] != null)
+                {
+                    GameObject obj = instance[x, y].gameObject;
+                    obj.transform.position = new Vector2(obj.transform.position.x, obj.transform.position.y - 1);
+                    instance[x,y -1] = obj;
+                    instance[x, y] = null;
+                    y = 0;
                 }
             }
         }
